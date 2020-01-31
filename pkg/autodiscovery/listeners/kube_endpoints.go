@@ -179,10 +179,6 @@ func (l *KubeEndpointsListener) createService(kep *v1.Endpoints, firstRun bool) 
 	if kep == nil {
 		return
 	}
-	if !l.isEndpointsAnnotated(kep) {
-		// Ignore endpoints with no AD annotation on their corresponding service
-		return
-	}
 
 	eps := processEndpoints(kep, firstRun)
 
